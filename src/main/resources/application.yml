@@ -1,0 +1,9 @@
+server:
+  port: 8096
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///oppodemo?serverTimezone=UTC
+    username: root
+    password: root
+

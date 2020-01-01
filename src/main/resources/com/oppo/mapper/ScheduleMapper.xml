@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.oppo.mapper.ScheduleMapper">
+    <resultMap id="findAllResultMap" type="com.oppo.pojo.bo.ScheduleBO">
+        <id property="id" column="id"/>
+        <result property="beginTime" column="begin_time"></result>
+        <result property="endTime" column="end_time"></result>
+        <result property="posId" column="pos_id"></result>
+        <result property="timeSet" column="time_set"></result>
+        <result property="totalCpm" column="total_cpm"></result>
+        <result property="pmpEnabled" column="pmp_enabled"></result>
+        <result property="ownerId" column="owmer_id"></result>
+    </resultMap>
+<select id="findAll" resultMap="findAllResultMap" parameterType="com.oppo.pojo.filter.ScheduleFilter">
+     select * from ads_contract_schedule
+</select>
+</mapper>
