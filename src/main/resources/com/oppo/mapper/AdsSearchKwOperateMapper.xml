@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oppo.mapper.AdsSearchKwOperateMapper">
+    <resultMap id="baseResultMap" type="AdsSearchKwOperateVO">
+        <result property="appId" column="app_id"/>
+        <result property="keyWord" column="keyword"/>
+        <result property="correlation" column="correlation"/>
+        <result property="pv1" column="pv7"/>
+        <result property="pv7" column="pv_7"/>
+        <result property="insertTime" column="insert_time"/>
+        <result property="lastModifyTime" column="last_modify_time"/>
+    </resultMap>
+    <select id="findAll"  parameterType="com.oppo.pojo.filter.AdsSearchKwOperateFilter" resultMap="baseResultMap">
+        select keyword from  ads_search_kw_operate
+        <where>
+            <if test=" appId != null">
+                and app_id = #{appId}
+            </if>
+            <if test="keyWord != null and keyWord.size >0">
+                and keyword = #{keyWord}
+            </if>
+            <if test="correlation != null ">
+               and  correlation &lt; #{correlation}
+            </if>
+        </where>
+    </select>
+</mapper>
